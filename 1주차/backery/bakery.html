@@ -4,46 +4,40 @@
     <meta charset="UTF-8" />
     <title>backery</title>
     <link rel="stylesheet" href="./style.css" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
-    />
+    <script
+      src="https://kit.fontawesome.com/fdaeef652b.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
     <header>
-      <div>
-        <h1 class="title">backery</h1>
-      </div>
-      <div>
-        <button class="hamburger">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-        </button>
-      </div>
+      <h1 class="title">Goo's Backery</h1>
+      <button class="menu_btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
     </header>
     <main>
       <nav>
-        <span>종류</span>
-        <div class="nav-box">
-          <div class="nav-item">
+        <span class="nav_title">종류</span>
+        <ul class="nav-box">
+          <li class="nav-item">
             <input type="checkbox" />
-            전체
-          </div>
-          <div class="nav-item">
+            <label for="all_filter">전체</label>
+          </li>
+          <li class="nav-item">
             <input type="checkbox" />
-            베이커리
-          </div>
-          <div class="nav-item">
+            <label for="backery_filter">베이커리</label>
+          </li>
+          <li class="nav-item">
             <input type="checkbox" />
-            케이크
-          </div>
-          <div class="nav-item">
+            <label for="cake_filter">케이크</label>
+          </li>
+          <li class="nav-item">
             <input type="checkbox" />
-            다쿠아즈
-          </div>
-        </div>
+            <label for="dacquoise_filter">다쿠아즈</label>
+          </li>
+        </ul>
       </nav>
       <section class="grid-container">
         <div class="card">

@@ -1,3 +1,7 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 header {
   background-color: pink;
   display: flex;
@@ -10,33 +14,34 @@ header {
 }
 
 .title {
-  font-family: "Courier New", Courier, monospace;
   margin: 10px;
 }
 
 h1 {
   display: flex;
   padding: 0 1rem;
+  margin: 1rem;
 }
 
 h1::before,
 h1::after {
   content: "";
   display: inline-block;
-  width: 36px;
-  height: 36px;
+  width: 2.5rem;
+  height: 2.5rem;
   background-image: url("cake-slice.png");
   background-repeat: no-repeat;
   background-size: contain;
-  margin: 1px;
+  margin: 0 1rem;
 }
 
-.hamburger {
+.menu_btn {
   border: none;
   background-color: transparent;
   cursor: pointer;
+  font-size: 2rem;
   padding: 0 1rem;
-  margin: 1px;
+  margin: 0.1rem;
 }
 
 .line {
@@ -53,7 +58,7 @@ body {
 }
 
 main {
-  margin-top: 68px;
+  margin-top: 5rem;
   display: flex;
 }
 
@@ -64,10 +69,10 @@ nav {
   height: 15rem;
   display: flex;
   flex-direction: column;
-  margin: 10px;
+  margin: 0 1rem;
 }
 
-nav span {
+.nav_title {
   padding: 0.5rem;
   font-size: 1.2rem;
   font-weight: bolder;
@@ -77,13 +82,16 @@ nav span {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 0;
+  margin: 0 0;
 }
 
 .nav-item {
+  list-style: none;
   background-color: white;
   width: 12rem;
-  margin: 5px;
-  padding: 5px;
+  margin: 0.3rem;
+  padding: 0.3rem;
   border-radius: 10px;
   font-size: 1.2rem;
   font-weight: bolder;
@@ -92,8 +100,8 @@ nav span {
 section {
   display: grid;
   width: 80%;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
+  grid-gap: 1.25rem;
   align-items: center;
 }
 
@@ -102,7 +110,7 @@ section {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   overflow: hidden;
-  padding: 20px;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -137,8 +145,8 @@ section {
   justify-content: center;
   flex-wrap: wrap;
   overflow: hidden;
-  width: 11rem;
-  height: 3rem;
+  width: 13rem;
+  height: 4rem;
 }
 
 .card-tag {
@@ -146,11 +154,11 @@ section {
   justify-content: center;
   align-items: center;
   white-space: nowrap;
-  margin-top: 10px;
+  margin: 0.625rem 0.3rem 0.625rem 0.3rem;
   height: 1.5rem;
   background-color: antiquewhite;
-  border-radius: 10px;
-  padding: 3px;
+  border-radius: 0.625rem;
+  padding: 0.5rem 0.5rem;
   font-weight: bolder;
 }
 
