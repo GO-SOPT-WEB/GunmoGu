@@ -1,150 +1,151 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko-kr">
   <head>
+    <meta charset="UTF-8" />
+    <title>ToDomate</title>
     <link rel="stylesheet" href="./style.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
     />
   </head>
+
   <body>
     <header>
-      <div>
-        <h1 class="title">WEB TO DO MATE</h1>
-      </div>
+      <h1 class="title">WEB TO DO MATE</h1>
     </header>
     <main>
       <section class="calander">
-        <div class="calander-item">
-          <div class="day">월</div>
+        <article class="calander-item">
+          <header class="calander-day">월</header>
           <div class="todo-number-box">
             <i class="fa fa-heart"></i>
             <span class="todo-number">6</span>
           </div>
-          <div class="date">27</div>
-        </div>
-        <div class="calander-item">
-          <div class="day">화</div>
+          <time class="date">27</time>
+        </article>
+        <article class="calander-item">
+          <header class="calander-day">화</header>
           <div class="todo-number-box">
             <i class="fa fa-heart"></i>
             <span class="todo-number">6</span>
           </div>
-          <div class="date">28</div>
-        </div>
-        <div class="calander-item">
-          <div class="day">수</div>
+          <time class="date">28</time>
+        </article>
+        <article class="calander-item">
+          <header class="calander-day">수</header>
           <div class="todo-number-box">
             <i class="fa fa-heart"></i>
             <span class="todo-number">6</span>
           </div>
-          <div class="date">29</div>
-        </div>
-        <div class="calander-item">
-          <div class="day">목</div>
+          <time class="date">29</time>
+        </article>
+        <article class="calander-item">
+          <header class="calander-day">목</header>
           <div class="todo-number-box">
             <i class="fa fa-heart"></i>
             <span class="todo-number">6</span>
           </div>
-          <div class="date">30</div>
-        </div>
-        <div class="calander-item">
-          <div class="day">금</div>
+          <time class="date">30</time>
+        </article>
+        <article class="calander-item">
+          <header class="calander-day">금</header>
           <div class="todo-number-box">
             <i class="fa fa-heart"></i>
             <span class="todo-number">6</span>
           </div>
-          <div class="date">31</div>
-        </div>
-        <div class="calander-item">
-          <div class="day">토</div>
+          <time class="date">31</time>
+        </article>
+        <article class="calander-item">
+          <header class="calander-day">토</header>
           <div class="todo-number-box">
             <i class="fa fa-heart"></i>
             <span class="todo-number">6</span>
           </div>
-          <div class="date">1</div>
-        </div>
-        <div class="calander-item">
-          <div class="day">일</div>
+          <time class="date">1</time>
+        </article>
+        <article class="calander-item">
+          <header class="calander-day">일</header>
           <div class="todo-number-box">
             <i class="fa fa-heart"></i>
             <span class="todo-number">6</span>
           </div>
-          <div class="date">2</div>
-        </div>
+          <time class="date">2</time>
+        </article>
       </section>
       <section class="todo-container">
-        <div class="todo-box">
-          <div class="todo-category" category="개인">
-            <span>Happhee</span>
+        <article class="todo-box">
+          <header class="todo-category" category="개인">
+            <h2 class="todo-category-title">Happhee</h2>
             <button>
               <i class="fa fa-plus"></i>
             </button>
-          </div>
-          <div class="todo-list">
-            <div class="todo-name" done="true">베이킹 냠냠</div>
-            <div class="todo-name" done="false">방정리</div>
-          </div>
-        </div>
-        <div class="todo-box">
-          <div class="todo-category" category="학교">
-            <span>Happhee</span>
+          </header>
+          <ul class="todo-list">
+            <li class="todo-name" done="true">베이킹 냠냠</li>
+            <li class="todo-name" done="false">방정리</li>
+          </ul>
+        </article>
+        <article class="todo-box">
+          <header class="todo-category" category="학교">
+            <h2 class="todo-category-title">Happhee</h2>
             <button>
               <i class="fa fa-plus"></i>
             </button>
-          </div>
-          <div class="todo-list">
-            <div class="todo-name" done="false">베이킹 냠냠</div>
-            <div class="todo-name" done="false">방정리</div>
-          </div>
-        </div>
-        <div class="todo-box">
-          <div class="todo-category" category="대외활동">
-            <span>Happhee</span>
+          </header>
+          <ul class="todo-list">
+            <li class="todo-name" done="false">베이킹 냠냠</li>
+            <li class="todo-name" done="false">방정리</li>
+          </ul>
+        </article>
+        <article class="todo-box">
+          <header class="todo-category" category="대외활동">
+            <h2 class="todo-category-title">Happhee</h2>
             <button>
               <i class="fa fa-plus"></i>
             </button>
-          </div>
-          <div class="todo-list">
-            <div class="todo-name" done="false">베이킹 냠냠</div>
-            <div class="todo-name" done="false">방정리</div>
-          </div>
-        </div>
-        <div class="todo-box">
-          <div class="todo-category">
-            <span>Happhee</span>
+          </header>
+          <ul class="todo-list">
+            <li class="todo-name" done="false">베이킹 냠냠</li>
+            <li class="todo-name" done="false">방정리</li>
+          </ul>
+        </article>
+        <article class="todo-box">
+          <header class="todo-category">
+            <h2 class="todo-category-title">Happhee</h2>
             <button>
               <i class="fa fa-plus"></i>
             </button>
-          </div>
-          <div class="todo-list">
-            <div class="todo-name" done="false">베이킹 냠냠</div>
-            <div class="todo-name" done="false">방정리</div>
-          </div>
-        </div>
-        <div class="todo-box">
-          <div class="todo-category">
-            <span>Happhee</span>
+          </header>
+          <ul class="todo-list">
+            <li class="todo-name" done="false">베이킹 냠냠</li>
+            <li class="todo-name" done="false">방정리</li>
+          </ul>
+        </article>
+        <article class="todo-box">
+          <header class="todo-category">
+            <h2 class="todo-category-title">Happhee</h2>
             <button>
               <i class="fa fa-plus"></i>
             </button>
-          </div>
-          <div class="todo-list">
-            <div class="todo-name" done="false">베이킹 냠냠</div>
-            <div class="todo-name" done="false">방정리</div>
-          </div>
-        </div>
-        <div class="todo-box">
-          <div class="todo-category">
-            <span>Happhee</span>
+          </header>
+          <ul class="todo-list">
+            <li class="todo-name" done="false">베이킹 냠냠</li>
+            <li class="todo-name" done="false">방정리</li>
+          </ul>
+        </article>
+        <article class="todo-box">
+          <header class="todo-category">
+            <h2 class="todo-category-title">Happhee</h2>
             <button>
               <i class="fa fa-plus"></i>
             </button>
-          </div>
-          <div class="todo-list">
-            <div class="todo-name" done="false">베이킹 냠냠</div>
-            <div class="todo-name" done="false">방정리</div>
-          </div>
-        </div>
+          </header>
+          <ul class="todo-list">
+            <li class="todo-name" done="false">베이킹 냠냠</li>
+            <li class="todo-name" done="false">방정리</li>
+          </ul>
+        </article>
       </section>
     </main>
     <footer>

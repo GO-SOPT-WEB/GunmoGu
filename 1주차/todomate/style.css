@@ -1,3 +1,7 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -9,7 +13,6 @@ body {
 }
 
 .title {
-  font-family: "Courier New", Courier, monospace;
   margin: 10px;
   text-align: center;
   color: white;
@@ -86,19 +89,18 @@ body {
 
 .todo-category {
   background-color: bisque;
-  border-radius: 3rem;
+  border-radius: 2rem;
   width: fit-content;
-  padding: 1rem 2rem;
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  padding: 0rem 1.25rem;
   font-weight: bolder;
   color: indigo;
   display: flex;
   align-items: center;
 }
 
-.todo-category span {
-  padding-right: 1rem;
+.todo-category-title {
+  padding: 0 1rem;
+  font-weight: bolder;
 }
 
 .todo-category[category="개인"] {
@@ -128,9 +130,14 @@ body {
   color: white;
 }
 
+.todo-list {
+  padding: 0 0;
+}
+
 .todo-name {
   margin: 10px;
   font-weight: bold;
+  list-style: none;
 }
 
 .todo-name[done="false"]::before {
