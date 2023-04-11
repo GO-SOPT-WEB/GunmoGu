@@ -35,7 +35,7 @@ h1::after {
   margin: 0 1rem;
 }
 
-.menu_btn {
+.menu-btn {
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -72,7 +72,7 @@ nav {
   margin: 0 1rem;
 }
 
-.nav_title {
+.nav-title {
   padding: 0.5rem;
   font-size: 1.2rem;
   font-weight: bolder;
@@ -128,7 +128,7 @@ section {
   margin: 0;
 }
 
-.card_tagwrapper {
+.card-tagwrapper {
   display: flex;
   justify-content: center;
   align-items: center;
