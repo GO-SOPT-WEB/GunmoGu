@@ -117,12 +117,6 @@ section {
   align-items: center;
 }
 
-.card-detail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .card img {
   width: 100%;
   height: auto;
@@ -134,10 +128,12 @@ section {
   margin: 0;
 }
 
-.card-tag-box {
+.card_tagwrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .card-tags {
@@ -147,6 +143,7 @@ section {
   overflow: hidden;
   width: 13rem;
   height: 4rem;
+  padding: 0 0;
 }
 
 .card-tag {
@@ -164,20 +161,15 @@ section {
 
 .card-tags-add {
   display: inline;
-}
-
-.card-like-box {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
-
-.card button {
   border: none;
   background-color: transparent;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: row;
+  align-self: center;
+}
+
+.card-like {
+  border: none;
+  background-color: transparent;
+  align-self: flex-end;
 }
 
 .card-like i {
