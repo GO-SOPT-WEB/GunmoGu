@@ -4,7 +4,7 @@ const data = [
         todo: [
             {
                 title: "Learn React",
-                done: false
+                done: true
             },
             {
                 title: "Learn Vue",

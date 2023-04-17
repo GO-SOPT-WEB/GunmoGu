@@ -20,14 +20,18 @@ todoDataList.forEach((todoData) => {
         const todoList = todobox.querySelector('.todo-list')
         const todoElement = document.createElement('li')
         todoElement.classList.add('todo-name')
-        todoElement.setAttribute('done', todo.done)
-        todoElement.innerHTML = todo.title;
+        todoElement.innerHTML = `
+            <i class="fa fa-heart" data-done="${todo.done}"></i>
+            <span>${todo.title}</span>
+        `
         todoList.appendChild(todoElement)
     });
     todoContainer.appendChild(todobox)
 })
 
-const todoNumber = document.querySelectorAll('.todo-name').length
+const todoNumber = data
+    .map((todoData) => todoData.todo.filter((todo) => !todo.done).length)
+    .reduce((a, b) => a + b, 0);
 const calanderItemElement = document.querySelectorAll('.calander-item')
 calanderItemElement.forEach((calanderItem) => {
     if (calanderItem.classList.contains('today')) {

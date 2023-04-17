@@ -140,19 +140,11 @@ body {
   list-style: none;
 }
 
-.todo-name[done="false"]::before {
-  content: "\f004";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  margin-right: 0.3rem;
+.todo-name i[data-done="false"] {
   color: white;
 }
 
-.todo-name[done="true"]::before {
-  content: "\f004";
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  margin-right: 0.3rem;
+.todo-name i[data-done="true"] {
   color: pink;
 }
 
