@@ -97,12 +97,36 @@ nav {
   font-weight: bolder;
 }
 
-section {
+.product-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.grid-container {
   display: grid;
   width: 80%;
   grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr));
   grid-gap: 1.25rem;
   align-items: center;
+}
+
+.select-filter {
+  display: flex;
+  flex-direction: row;
+}
+
+.select-filter-item {
+  display: flex;
+  margin: 0.5rem 0.5rem;
+  background-color: darksalmon;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+
+.select-filter-item-delete {
+  margin: 0 0 0 0.5rem;
+  border: none;
 }
 
 .card {
