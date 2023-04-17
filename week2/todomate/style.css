@@ -42,6 +42,10 @@ body {
   justify-content: space-evenly;
 }
 
+.today i {
+  color: pink;
+}
+
 .todo-number-box {
   display: inline-block;
   position: relative;
@@ -103,16 +107,12 @@ body {
   font-weight: bolder;
 }
 
-.todo-category[category="개인"] {
+.todo-category[category="Work"] {
   background-color: aqua;
 }
 
-.todo-category[category="학교"] {
+.todo-category[category="Home"] {
   background-color: darkkhaki;
-}
-
-.todo-category[category="대외활동"] {
-  background-color: gainsboro;
 }
 
 .todo-category button {
