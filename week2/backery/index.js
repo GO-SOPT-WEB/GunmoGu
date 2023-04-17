@@ -1,7 +1,35 @@
-const product = [];
+import data from "./backery.js";
+
+const products = data
+console.log(data)
 const categoryList = [];
 
 const categoryButton = document.querySelectorAll('.nav-item > label > input');
+
+products.forEach((product) => {
+    const productsContainer = document.querySelector('.grid-container');
+    const productElement = document.createElement('article');
+    productElement.classList.add('card');
+    productElement.innerHTML = `
+    <h2 class="card-title">${product.name}</h2>
+    <div class="card-tagwrapper">
+        <ul class="card-tags">
+        </ul>
+        <button class="card-tags-add">+</button>
+    </div>
+    <img src="${product.image}" alt="상품이미지" />
+    <button class="card-like">
+        <i class="fa fa-heart"></i>
+    </button>
+    `;
+    product.tag.forEach((tag) => {
+        const tagElement = document.createElement('li');
+        tagElement.classList.add('card-tag');
+        tagElement.textContent = tag;
+        productElement.querySelector('.card-tags').appendChild(tagElement);
+    });
+    productsContainer.appendChild(productElement);
+});
 
 categoryButton.forEach((button) => {
     button.addEventListener('click', (event) => {
@@ -12,9 +40,8 @@ categoryButton.forEach((button) => {
             const index = categoryList.indexOf(category);
             categoryList.splice(index, 1);
         }
-        // const categoryProducts = products.filter((product) => product.category === category);
-        // displayProducts(categoryProducts);
         displaySelectFilter();
+        displayProducts();
     });
 });
 
@@ -31,7 +58,6 @@ const displaySelectFilter = () => {
       `;
     });
     selectFilter.innerHTML = selectFilterElements.join("");
-
     const deleteButtons = selectFilter.querySelectorAll('.select-filter-item-delete');
     deleteButtons.forEach((button) => {
         button.addEventListener('click', (event) => {
@@ -45,42 +71,43 @@ const displaySelectFilter = () => {
                 }
             })
             displaySelectFilter();
+            displayProducts();
         });
     });
 };
 
-const displayProducts = (products) => {
+const displayProducts = () => {
+    let categoryProducts = [];
+    if (categoryList.length === 0) {
+        categoryProducts = products;
+    } else if (categoryList.indexOf('all') > -1) {
+        categoryProducts = products;
+    } else {
+        categoryProducts = products.filter((product) => categoryList.indexOf(product.category) !== -1);
+    }
     const productsContainer = document.querySelector('.grid-container');
     productsContainer.innerHTML = '';
-    products.forEach((product) => {
+    categoryProducts.forEach((product) => {
         const productElement = document.createElement('article');
         productElement.classList.add('card');
         productElement.innerHTML = `
-        <h2 class="card-title">소금빵</h2>
+        <h2 class="card-title">${product.name}</h2>
         <div class="card-tagwrapper">
           <ul class="card-tags">
-            <li class="card-tag">#맛있어</li>
-            <li class="card-tag">#내가 좋아해</li>
-            <li class="card-tag">#진짜야</li>
           </ul>
           <button class="card-tags-add">+</button>
         </div>
-        <img src="./salt-bread.jpg" alt="상품이미지" />
+        <img src="${product.image}" alt="상품이미지" />
         <button class="card-like">
           <i class="fa fa-heart"></i>
         </button>
-    `;
+        `;
+        product.tag.forEach((tag) => {
+            const tagElement = document.createElement('li');
+            tagElement.classList.add('card-tag');
+            tagElement.textContent = tag;
+            productElement.querySelector('.card-tags').appendChild(tagElement);
+        });
         productsContainer.appendChild(productElement);
     });
 }
-
-const deleteButtons = document.querySelectorAll('.select-filter-item-delete');
-deleteButtons.forEach((button) => {
-    button.addEventListener('click', (event) => {
-        const parent = event.target.closest('.select-filter-item');
-        const category = parent.querySelector('span').textContent;
-        const index = categoryList.indexOf(category);
-        categoryList.splice(index, 1);
-        displaySelectFilter();
-    });
-});
