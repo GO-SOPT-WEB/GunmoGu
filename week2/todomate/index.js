@@ -7,6 +7,7 @@ const displayTodo = (todoData) => {
         const todobox = document.createElement('article')
         todobox.classList.add('todo-box')
         todobox.innerHTML = `
+        <article class="todo-box">
         <header class="todo-category" category="${todoData.category}">
         <h2 class="todo-category-title">${todoData.category}</h2>
         <button class="todo-add-btn">
@@ -15,6 +16,7 @@ const displayTodo = (todoData) => {
         </header>
         <ul class="todo-list">
         </ul>
+        </article>
     `
         todoData.todo.forEach((todo) => {
             const todoList = todobox.querySelector('.todo-list')
