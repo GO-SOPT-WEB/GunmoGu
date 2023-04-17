@@ -219,3 +219,34 @@ footer {
   font-weight: bolder;
   border: none;
 }
+
+a:link {
+  color: red;
+  text-decoration: none;
+}
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.category-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: antiquewhite;
+  border-radius: 1.25rem;
+  height: 20rem;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bolder;
+  justify-content: space-evenly;
+  background-color: blueviolet;
+  padding: 1rem;
+  border-radius: 1.25rem;
+}

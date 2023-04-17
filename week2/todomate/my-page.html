@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ToDomate-mypage</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
+    />
+    <script async src="./mypage.js" type="module"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1 class="title">WEB TO DO MATE</h1>
+    </header>
+    <main>
+      <section class="category-container"></section>
+    </main>
+    <footer>
+      <a href="/todomate.html">
+        <button class="calander-btn footer-btn">
+          <i class="fa fa-home"></i>
+          <span>달력</span>
+        </button>
+      </a>
+      <a href="/my-page.html">
+        <button class="my-page-btn footer-btn">
+          <i class="fa fa-user"></i>
+          <span>MY</span>
+        </button>
+      </a>
+    </footer>
+    <modal class="modal-wrapper">
+      <div class="modal">
+        <header class="modal-header">
+          <button class="modal-close-btn">
+            <i class="fa fa-times"></i>
+          </button>
+        </header>
+        <div class="modal-body">
+          <form class="todo-form">
+            <div class="todo-form-item">
+              <label for="todo-content"></label>
+              <input type="text" name="todo-content" id="todo-content" />
+            </div>
+          </form>
+        </div>
+        <button class="modal-submit-btn">추가</button>
+      </div>
+    </modal>
+  </body>
+</html>
