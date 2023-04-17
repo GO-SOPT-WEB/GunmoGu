@@ -74,7 +74,8 @@
           <time class="date">2</time>
         </article>
       </section>
-      <section class="todo-container"></section>
+      <section class="todo-container">
+      </section>
     </main>
     <footer>
       <button class="calander-btn footer-btn">
@@ -86,5 +87,24 @@
         <span>MY</span>
       </button>
     </footer>
+    <modal class="modal-wrapper">
+      <div class="modal">
+        <header class="modal-header">
+          <button class="modal-close-btn">
+            <i class="fa fa-times"></i>
+          </button>
+        </header>
+        <div class="modal-body">
+          <form class="todo-form">
+            <div class="todo-form-item">
+              <label for="todo-content"></label>
+              <input type="text" name="todo-content" 
+               id="todo-content"></input>
+            </div>
+          </form>
+        </div>
+        <button class="modal-submit-btn">추가</button>
+      </div>
+    </modal>
   </body>
 </html>

@@ -175,3 +175,47 @@ footer {
   bottom: 0;
   width: 100%;
 }
+
+.modal-wrapper {
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: pink;
+  border-radius: 5px;
+  position: absolute;
+  overflow: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20rem;
+  height: 10rem;
+}
+
+.modal-close-btn {
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  color: white;
+  font-size: 1.5rem;
+  border: none;
+}
+
+.modal-submit-btn {
+  width: 5rem;
+  height: 2rem;
+  background-color: violet;
+  color: black;
+  font-weight: bolder;
+  border: none;
+}
