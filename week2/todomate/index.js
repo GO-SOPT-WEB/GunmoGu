@@ -35,40 +35,52 @@ const displayTodo = (todoData) => {
 
 displayTodo(todoDataList)
 
-let todoNumber = data
-    .map((todoData) => todoData.todo
-        .filter((todo) => !todo.done).length)
-    .reduce((a, b) => a + b, 0);
+const displayTodoNumber = () => {
+    const todoNumber = data
+        .map((todoData) => todoData.todo
+            .filter((todo) => !todo.done).length)
+        .reduce((a, b) => a + b, 0);
 
-const displayTodoNumber = (number) => {
     const calanderItemElement = document.querySelectorAll('.calander-item')
     calanderItemElement.forEach((calanderItem) => {
         if (calanderItem.classList.contains('today')) {
             const todoNumberElement = calanderItem.querySelector('.todo-number')
-            todoNumberElement.innerHTML = number
+            todoNumberElement.innerHTML = todoNumber
         }
     })
 }
 
-displayTodoNumber(todoNumber)
+displayTodoNumber()
 
-todoContainer.addEventListener('click', (e) => {
-    const todoElement = e.target.closest('.todo-name')
+todoContainer.addEventListener('click', (event) => {
+    const todoElement = event.target.closest('.todo-name')
     if (todoElement) {
         const done = todoElement.querySelector('.fa-heart').dataset.done
         if (done == 'true') {
             todoElement.querySelector('.fa-heart').dataset.done = 'false'
-            todoNumber += 1
+            todoDataList.map((todoData) => {
+                todoData.todo.map((todo) => {
+                    if (todo.title == todoElement.querySelector('span').innerHTML) {
+                        todo.done = false
+                    }
+                })
+            })
         } else {
             todoElement.querySelector('.fa-heart').dataset.done = 'true'
-            todoNumber -= 1
+            todoDataList.map((todoData) => {
+                todoData.todo.map((todo) => {
+                    if (todo.title == todoElement.querySelector('span').innerHTML) {
+                        todo.done = true
+                    }
+                })
+            })
         }
-        displayTodoNumber(todoNumber)
+        displayTodoNumber()
     }
 });
 
-todoContainer.addEventListener('click', (e) => {
-    const todoAddButton = e.target.closest('.todo-add-btn')
+todoContainer.addEventListener('click', (event) => {
+    const todoAddButton = event.target.closest('.todo-add-btn')
     if (todoAddButton) {
         const todoModal = document.querySelector('.modal-wrapper')
         todoModal.classList.add('show')
@@ -103,7 +115,6 @@ modalAddButton.addEventListener('click', (e) => {
     });
     console.log(todoDataList)
     displayTodo(todoDataList)
-    todoNumber += 1
-    displayTodoNumber(todoNumber)
+    displayTodoNumber()
 });
 
