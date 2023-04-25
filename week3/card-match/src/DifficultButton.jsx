@@ -1,7 +1,15 @@
 import styled from "styled-components";
+import { useState } from "react";
 
-const DifficultButton = ({ difficulty, handleDifficulty }) => {
-  return <StyledButton onClick={handleDifficulty}>{difficulty}</StyledButton>;
+const DifficultButton = ({ difficulty, handleDifficulty, clicked }) => {
+  return (
+    <StyledButton
+      className={`${clicked ? "clicked" : ""}`}
+      onClick={handleDifficulty}
+    >
+      {difficulty}
+    </StyledButton>
+  );
 };
 
 const StyledButton = styled.button`
@@ -11,10 +19,13 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 5px;
   font-weight: bold;
-  &:focus {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
+  box-shadow: rgb(229, 209, 250) 0.3rem 0.3rem 0.3rem;
+
   &:hover {
+    color: pink;
+    background-color: white;
+  }
+  &.clicked {
     color: pink;
     background-color: white;
   }
