@@ -4,6 +4,7 @@ import DifficultButton from "./DifficultButton";
 import Header from "./Header";
 import { Normalize } from "styled-normalize";
 import styled from "styled-components";
+import CardBoard from "./Card";
 
 function App() {
   const EASY_COUNT = 5;
@@ -58,6 +59,7 @@ function App() {
           />
         );
       })}
+      <CardBoard></CardBoard>
       <ResetButton />
     </>
   );
