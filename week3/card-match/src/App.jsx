@@ -1,10 +1,57 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import DifficultButton from "./DifficultButton";
 import Header from "./Header";
 import { Normalize } from "styled-normalize";
 import styled from "styled-components";
 import CardBoard from "./Card";
+
+const cardImageList = [
+  {
+    id: 1,
+    src: "https://item.kakaocdn.net/do/907fee9278a66e8d009a194f0c5ce7d6f43ad912ad8dd55b04db6a64cddaf76d",
+  },
+  {
+    id: 2,
+    src: "https://item.kakaocdn.net/do/907fee9278a66e8d009a194f0c5ce7d6f43ad912ad8dd55b04db6a64cddaf76d",
+  },
+  {
+    id: 3,
+    src: "https://item.kakaocdn.net/do/907fee9278a66e8d009a194f0c5ce7d6f43ad912ad8dd55b04db6a64cddaf76d",
+  },
+  {
+    id: 4,
+    src: "https://item.kakaocdn.net/do/907fee9278a66e8d009a194f0c5ce7d6f43ad912ad8dd55b04db6a64cddaf76d",
+  },
+  {
+    id: 5,
+    src: "https://item.kakaocdn.net/do/907fee9278a66e8d009a194f0c5ce7d6f43ad912ad8dd55b04db6a64cddaf76d",
+  },
+];
+
+const generateCards = (cardList) => {
+  const cards = [];
+  let id = 1;
+  cardList.forEach((card) => {
+    for (let i = 0; i < 2; i++) {
+      cards.push({ id: id, cardId: card.id, src: card.src });
+      id++;
+    }
+  });
+  return cards;
+};
+
+const shuffleCard = (cardList) => {
+  const shuffledCardList = [...cardList];
+  for (let i = shuffledCardList.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledCardList[i], shuffledCardList[j]] = [
+      shuffledCardList[j],
+      shuffledCardList[i],
+    ];
+  }
+  return shuffledCardList;
+};
 
 function App() {
   const EASY_COUNT = 5;
@@ -16,6 +63,8 @@ function App() {
   const [difficulty, setDifficulty] = useState("EASY");
 
   const difficultyList = ["EASY", "NORMAL", "HARD"];
+
+  const [cardList, setCardList] = useState(generateCards(cardImageList));
 
   const handleDifficulty = (e) => {
     const difficultyContent = e.target.textContent;
@@ -31,10 +80,10 @@ function App() {
     }
   };
 
-  const [clicked, setClicked] = useState(false);
-
   const handleResetClick = () => {
     setScore(0);
+    const shuffledCardList = shuffleCard(cardList);
+    setCardList(shuffledCardList);
   };
 
   const ResetButton = () => {
@@ -59,7 +108,11 @@ function App() {
           />
         );
       })}
-      <CardBoard></CardBoard>
+      <CardBoard
+        score={score}
+        setScore={setScore}
+        cardList={cardList}
+      ></CardBoard>
       <ResetButton />
     </>
   );
