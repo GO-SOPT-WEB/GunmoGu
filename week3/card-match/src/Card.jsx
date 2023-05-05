@@ -15,13 +15,13 @@ const Card = ({ handleCardClick, id, src, cardId, clicked }) => {
   );
 };
 
-const CardBoard = ({ score, setScore, cardList }) => {
-  const [cardFlipList, setcardFlipList] = useState(cardList.map(() => false));
-
-  useEffect(() => {
-    setcardFlipList(cardList.map(() => false));
-  }, [cardList]);
-
+const CardBoard = ({
+  score,
+  setScore,
+  cardList,
+  cardFlipList,
+  setcardFlipList,
+}) => {
   const [flipped, setFlipped] = useState([]);
 
   const matchCardClick = (cardId, id) => {
@@ -39,7 +39,7 @@ const CardBoard = ({ score, setScore, cardList }) => {
         setFlipped([]);
       } else {
         setTimeout(() => {
-          resetCardFlipList();
+          undoCardFlipList();
           setFlipped([]);
         }, 1000);
         return false;
@@ -48,7 +48,7 @@ const CardBoard = ({ score, setScore, cardList }) => {
     return true;
   };
 
-  const resetCardFlipList = () => {
+  const undoCardFlipList = () => {
     flipped.map((card) => {
       const newCardFlipList = [...cardFlipList];
       newCardFlipList[card.id] = false;
@@ -123,7 +123,7 @@ const StyledCardBack = styled.div`
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: rgb(147, 14, 224);
+  background-color: rgb(224, 14, 213);
   border-radius: 1rem;
   backface-visibility: hidden;
   box-shadow: rgb(255, 204, 210) 0.1rem 0.1rem 0.1rem;
@@ -132,7 +132,7 @@ const StyledCardBack = styled.div`
 const StyledCardBoard = styled.div`
   width: 80%;
   height: 100%;
-  margin: auto;
+  margin: 10px auto;
 `;
 
 const StyledSection = styled.section`
@@ -148,8 +148,8 @@ const StyledArticle = styled.article`
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 10rem;
-  height: 12.5rem;
+  width: 15rem;
+  height: 18rem;
   background-color: rgb(255, 204, 210);
   border-radius: 1rem;
 `;
