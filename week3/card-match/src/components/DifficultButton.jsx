@@ -13,11 +13,12 @@ const DifficultButton = ({ difficulty, handleDifficulty, clicked }) => {
 };
 
 const StyledButton = styled.button`
-  margin: 10px;
-  padding: 10px;
+  margin: 1rem;
+  padding: 1rem;
   background-color: pink;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.5rem;
+  font-size: 2rem;
   font-weight: bold;
   box-shadow: rgb(229, 209, 250) 0.3rem 0.3rem 0.3rem;
 

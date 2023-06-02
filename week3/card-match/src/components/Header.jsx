@@ -1,10 +1,12 @@
 import styled from "styled-components";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const Header = ({ score, count }) => {
+  const scoreTitle = useRef(null);
+
   useEffect(() => {
     if (score === 0) return;
-    const h3 = document.querySelector("h3");
+    const h3 = scoreTitle.current;
     h3.classList.add("isAnswered");
     setTimeout(() => {
       h3.classList.remove("isAnswered");
@@ -13,34 +15,45 @@ const Header = ({ score, count }) => {
 
   return (
     <StyledHeader>
-      <h1>Card Match</h1>
-      <h3>
+      <StTile>Card Match</StTile>
+      <StScoreTitle ref={scoreTitle}>
         {score}/{count}
-      </h3>
+      </StScoreTitle>
     </StyledHeader>
   );
 };
 
+const StScoreTitle = styled.h3`
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+
+  &.isAnswered {
+    color: red;
+    font-size: 2rem;
+  }
+`;
+
+const StTile = styled.h1`
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+`;
+
 const StyledHeader = styled.header`
   background-color: #282c34;
-  min-height: 10vh;
+  height: 20rem;
+  width: 100%;
   padding: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   color: white;
-
-  h1,
-  h3 {
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-
-  h3.isAnswered {
-    color: red;
-    font-size: 2rem;
-  }
 `;
 
 export default Header;
