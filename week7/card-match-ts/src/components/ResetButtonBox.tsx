@@ -1,7 +1,31 @@
 import styled from "styled-components";
 import { shuffleCard } from "../utils/generateCardUtils";
 
-const ResetButton = ({ setScore, setCardList, setcardFlipList, cardList }) => {
+const ResetButton = ({
+  setScore,
+  setCardList,
+  setcardFlipList,
+  cardList,
+}: {
+  setScore: React.Dispatch<React.SetStateAction<number>>;
+  setCardList: React.Dispatch<
+    React.SetStateAction<
+      {
+        id: number;
+        src: string;
+        clicked: boolean;
+        cardId: number;
+      }[]
+    >
+  >;
+  setcardFlipList: React.Dispatch<React.SetStateAction<boolean[]>>;
+  cardList: {
+    id: number;
+    src: string;
+    clicked: boolean;
+    cardId: number;
+  }[];
+}) => {
   const handleResetClick = () => {
     setScore(0);
     const shuffledCardList = shuffleCard(cardList);
