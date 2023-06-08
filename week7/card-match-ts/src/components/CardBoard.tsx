@@ -1,31 +1,29 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Card from "./Card";
 import styled from "styled-components";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { generateCards, shuffleCard } from "../utils/generateCardUtils";
+import cardImageList from "../assets/cardImageList";
+import { countState } from "../selectors/Count";
+import { scoreState } from "../atoms/Score";
+import { cardListState } from "../atoms/CardList";
 
-const CardBoard = ({
-  score,
-  setScore,
-  cardList,
-  cardFlipList,
-  setcardFlipList,
-}: {
-  score: number;
-  setScore: React.Dispatch<React.SetStateAction<number>>;
-  cardList: {
-    id: number;
-    src: string;
-    clicked: boolean;
-    cardId: number;
-  }[];
-  cardFlipList: boolean[];
-  setcardFlipList: React.Dispatch<React.SetStateAction<boolean[]>>;
-}) => {
+const CardBoard = () => {
   const [flipped, setFlipped] = useState<
     {
       cardId: number;
       id: number;
     }[]
   >([]);
+
+  const score = useRecoilValue(scoreState);
+  const setScore = useSetRecoilState(scoreState);
+  const count = useRecoilValue(countState);
+
+  const [cardList, setCardList] = useRecoilState(cardListState);
+  useEffect(() => {
+    setCardList(shuffleCard(generateCards(cardImageList, count)));
+  }, [count]);
 
   const matchCardClick = (cardId: number, id: number) => {
     const newFlipped = [
@@ -36,13 +34,14 @@ const CardBoard = ({
       },
     ];
     setFlipped(newFlipped);
+
     if (newFlipped.length === 2) {
       if (newFlipped[0].cardId === newFlipped[1].cardId) {
         setScore(score + 1);
         setFlipped([]);
       } else {
         setTimeout(() => {
-          undoCardFlipList();
+          undoCardFlipList(newFlipped);
           setFlipped([]);
         }, 1000);
         return false;
@@ -51,18 +50,23 @@ const CardBoard = ({
     return true;
   };
 
-  const undoCardFlipList = () => {
+  const undoCardFlipList = (
+    flipped: {
+      cardId: number;
+      id: number;
+    }[]
+  ) => {
+    const newCardList = JSON.parse(JSON.stringify(cardList));
     flipped.map((card) => {
-      const newCardFlipList = [...cardFlipList];
-      newCardFlipList[card.id] = false;
-      setcardFlipList(newCardFlipList);
+      newCardList[card.id].flipped = false;
     });
+    setCardList(newCardList);
   };
 
   const updateCardFlipList = (id: number) => {
-    const newCardFlipList = [...cardFlipList];
-    newCardFlipList[id] = true;
-    setcardFlipList(newCardFlipList);
+    const newCardList = JSON.parse(JSON.stringify(cardList));
+    newCardList[id].flipped = true;
+    setCardList(newCardList);
   };
 
   const handleCardClick = (cardId: number, id: number) => () => {
@@ -89,7 +93,7 @@ const CardBoard = ({
               handleCardClick={handleCardClick}
               cardId={card.cardId}
               src={card.src}
-              clicked={cardFlipList[i]}
+              clicked={card.flipped}
               id={i}
               key={`${i + 1}`}
             ></Card>

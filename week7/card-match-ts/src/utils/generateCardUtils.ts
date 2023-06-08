@@ -7,12 +7,13 @@ const generateCards = (cardList: {
         cardId: number;
         src: string;
         clicked: boolean;
+        flipped: boolean;
     }[] = [];
     let id = 1;
     const newCardList = cardList.slice(0, count);
     newCardList.forEach((card) => {
         for (let i = 0; i < 2; i++) {
-            cards.push({ id: id, cardId: card.id, src: card.src, clicked: false });
+            cards.push({ id: id, cardId: card.id, src: card.src, clicked: false, flipped: false });
             id++;
         }
     });
@@ -24,6 +25,7 @@ const shuffleCard = (cardList: {
     cardId: number;
     src: string;
     clicked: boolean;
+    flipped: boolean;
 }[]) => {
     const shuffledCardList = [...cardList];
     for (let i = shuffledCardList.length - 1; i > 0; i--) {

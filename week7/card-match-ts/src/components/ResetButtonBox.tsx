@@ -1,36 +1,23 @@
 import styled from "styled-components";
-import { shuffleCard } from "../utils/generateCardUtils";
+import { generateCards, shuffleCard } from "../utils/generateCardUtils";
+import { useRecoilState, useRecoilValue, useSetRecoilState } from "recoil";
+import { difficultyState } from "../atoms/Difficulty";
+import { scoreState } from "../atoms/Score";
+import { cardListState } from "../atoms/CardList";
+import cardImageList from "../assets/cardImageList";
+import { countState } from "../selectors/Count";
 
-const ResetButton = ({
-  setScore,
-  setCardList,
-  setcardFlipList,
-  cardList,
-}: {
-  setScore: React.Dispatch<React.SetStateAction<number>>;
-  setCardList: React.Dispatch<
-    React.SetStateAction<
-      {
-        id: number;
-        src: string;
-        clicked: boolean;
-        cardId: number;
-      }[]
-    >
-  >;
-  setcardFlipList: React.Dispatch<React.SetStateAction<boolean[]>>;
-  cardList: {
-    id: number;
-    src: string;
-    clicked: boolean;
-    cardId: number;
-  }[];
-}) => {
+const ResetButton = () => {
+  const [difficulty, setDifficulty] = useRecoilState(difficultyState);
+  const setScore = useSetRecoilState(scoreState);
+  const setCardList = useSetRecoilState(cardListState);
+  const count = useRecoilValue(countState);
+
   const handleResetClick = () => {
+    const curDifficulty = difficulty;
+    setDifficulty(curDifficulty);
     setScore(0);
-    const shuffledCardList = shuffleCard(cardList);
-    setcardFlipList(cardList.map(() => false));
-    setCardList(shuffledCardList);
+    setCardList(shuffleCard(generateCards(cardImageList, count)));
   };
 
   return (

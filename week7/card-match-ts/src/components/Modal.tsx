@@ -30,7 +30,7 @@ function Modal({ children }: { children: React.ReactNode }) {
     <ModalWrapper>
       <ModalContent>{children}</ModalContent>
     </ModalWrapper>,
-    modalRoot as Element
+    modalRoot as HTMLElement
   );
 }
 

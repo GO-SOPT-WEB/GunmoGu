@@ -1,8 +1,13 @@
 import styled from "styled-components";
 import { useEffect, useRef } from "react";
+import { useRecoilValue } from "recoil";
+import { countState } from "../selectors/Count";
+import { scoreState } from "../atoms/Score";
 
-const Header = ({ score, count }: { score: number; count: number }) => {
+const Header = () => {
   const scoreTitle = useRef<HTMLHeadingElement>(null);
+  const score = useRecoilValue(scoreState);
+  const count = useRecoilValue(countState);
 
   useEffect(() => {
     if (score === 0) return;

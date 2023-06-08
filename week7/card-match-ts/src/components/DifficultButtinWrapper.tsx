@@ -1,25 +1,14 @@
 import styled from "styled-components";
 import DifficultButton from "./DifficultButton";
 
-const DifficultButtonBox = ({
-  difficultyList,
-  difficulty,
-  handleDifficulty,
-}: {
-  difficultyList: string[];
-  difficulty: string;
-  handleDifficulty: () => void;
-}) => {
+const DifficultButtonBox = () => {
+  const difficultyList = ["EASY", "NORMAL", "HARD"];
+
   return (
     <StDifficultyButtonWrapper>
       {difficultyList.map((_, i) => {
         return (
-          <DifficultButton
-            difficulty={difficultyList[i]}
-            clicked={difficulty === difficultyList[i]}
-            handleDifficulty={handleDifficulty}
-            key={`${i}`}
-          />
+          <DifficultButton difficultyText={difficultyList[i]} key={`${i}`} />
         );
       })}
     </StDifficultyButtonWrapper>

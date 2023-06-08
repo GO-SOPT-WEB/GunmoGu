@@ -1,20 +1,40 @@
 import styled from "styled-components";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { difficultyState } from "../atoms/Difficulty";
+import { scoreState } from "../atoms/Score";
+import { useEffect } from "react";
 
-const DifficultButton = ({
-  difficulty,
-  handleDifficulty,
-  clicked,
-}: {
-  difficulty: string;
-  handleDifficulty: () => void;
-  clicked: boolean;
-}) => {
+const DifficultButton = ({ difficultyText }: { difficultyText: string }) => {
+  const [difficulty, setDifficulty] = useRecoilState(difficultyState);
+  const setScore = useSetRecoilState(scoreState);
+
+  const handleDifficulty = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const difficultyContent = e.currentTarget.textContent;
+    switch (difficultyContent) {
+      case "EASY":
+        setDifficulty("EASY");
+        break;
+      case "NORMAL":
+        setDifficulty("NORMAL");
+        break;
+      case "HARD":
+        setDifficulty("HARD");
+        break;
+      default:
+        break;
+    }
+  };
+
+  useEffect(() => {
+    setScore(0);
+  }, [difficulty]);
+
   return (
     <StyledButton
-      className={`${clicked ? "clicked" : ""}`}
+      className={`${difficultyText == difficulty ? "clicked" : ""}`}
       onClick={handleDifficulty}
     >
-      {difficulty}
+      {difficultyText}
     </StyledButton>
   );
 };
