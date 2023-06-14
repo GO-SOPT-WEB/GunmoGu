@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>backery</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script
+      src="https://kit.fontawesome.com/fdaeef652b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script async src="./index.js" type="module"></script>
+  </head>
+
+  <body>
+    <header>
+      <h1 class="title">Goo's Backery</h1>
+      <button class="menu-btn">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </header>
+    <main>
+      <nav>
+        <span class="nav-title">종류</span>
+        <ul class="nav-box">
+          <li class="nav-item">
+            <label for="all-filter">
+              <input type="checkbox" data-category="all" />
+              전체</label
+            >
+          </li>
+          <li class="nav-item">
+            <label for="backery-filter">
+              <input type="checkbox" data-category="backery" />
+              베이커리</label
+            >
+          </li>
+          <li class="nav-item">
+            <label for="cake-filter">
+              <input type="checkbox" data-category="cake" />
+              케이크</label
+            >
+          </li>
+          <li class="nav-item">
+            <label for="dacquoise-filter">
+              <input type="checkbox" data-category="dacquoise" />
+              다쿠아즈</label
+            >
+          </li>
+        </ul>
+      </nav>
+      <section class="product-section">
+        <section class="select-filter"></section>
+        <section class="grid-container"></section>
+      </section>
+    </main>
+  </body>
+</html>
