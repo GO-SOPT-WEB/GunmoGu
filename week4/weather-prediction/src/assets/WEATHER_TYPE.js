@@ -51,6 +51,11 @@ export const WEATHER_TYPE = [
             "https://i.pinimg.com/236x/5c/ed/0f/5ced0fae87292feba7fe373881e3937d.jpg",
     },
     {
+        description: "thunderstorm with rain",
+        imgURL:
+            "https://i.pinimg.com/236x/5c/ed/0f/5ced0fae87292feba7fe373881e3937d.jpg",
+    },
+    {
         description: "snow",
         imgURL:
             "https://i.pinimg.com/236x/27/c0/5b/27c05bdab26655679a13fff25ad42b14.jpg",
