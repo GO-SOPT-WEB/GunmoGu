@@ -6,7 +6,7 @@ import SkeletonCard from "./SkeletonCard";
 
 const WeatherContent = ({ type }) => {
   const { city } = useParams();
-  const { data, error, isLoading } = useWeatherData(type, city);
+  const { data, isError, isLoading } = useWeatherData(type, city);
 
   const getDate = (date_txt) => {
     const date = new dayjs(date_txt);

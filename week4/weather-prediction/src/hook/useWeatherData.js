@@ -5,7 +5,7 @@ import { WEATHER_TYPE } from "../assets/WEATHER_TYPE";
 const useWeatherData = (type, city) => {
 
     const [data, setData] = useState([])
-    const [isError, setIsError] = useState('')
+    const [isError, setIsError] = useState("")
     const [isLoading, setIsLoading] = useState(true)
     const weatherTypeImage = WEATHER_TYPE;
 
