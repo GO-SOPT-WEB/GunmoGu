@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 const SkeletonCard = () => {
-  return <St.SkeletonCard></St.SkeletonCard>;
+  return <St.SkeletonCard />;
 };
 
 export default SkeletonCard;
